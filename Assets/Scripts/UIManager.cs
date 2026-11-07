@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]private TMP_Text scoreText;
     [SerializeField]private TMP_Text livesText;
     private int startLives = 3;
-    private int score = 0;
+    public int score = 0;
     private int lives = 0;
 
     private void Awake()
@@ -17,7 +18,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        Instance = this;
         lives = startLives;
         score = 0;
         UpdateScoreUI();
@@ -34,27 +35,25 @@ public class UIManager : MonoBehaviour
         livesText.text = "Vida: " + lives;
     }
 
-    void SetLives(int newLives)
+    public void SetLives(int newLives)
     {
         lives = newLives;
         UpdateLivesUI();
     }
-    void AddScore(int amount)
+    public void AddScore(int amount)
     {
         score += amount;
         UpdateScoreUI();
     }
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void AddLives(int amount)
     {
-
+        lives += amount;
+        UpdateLivesUI();
+    }
+    public void munusLives(int amount)
+    {
+        lives -= amount;
+        UpdateLivesUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

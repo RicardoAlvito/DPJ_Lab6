@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded == true)
             {
-                Debug.Log(2);
+                
                 Jump();
             }
         }
