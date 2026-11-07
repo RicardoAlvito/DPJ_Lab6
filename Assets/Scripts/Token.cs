@@ -14,24 +14,27 @@ public class Token : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
-      
 
+
+        // Verefica se a colisão do obejto tem a tag "Player" se não ignorar 
         if (!other.CompareTag("Player"))
         {
             return;
         }
 
+        //Adiciona pontos ao Score se a UI existir 
         if (UIManager.Instance != null)
         {
             UIManager.Instance.AddScore(value);
         }
 
+        // Toca um som ao ser colidido com o "player"
         if (pickupSfx != null)
         {
             AudioSource.PlayClipAtPoint(pickupSfx, transform.position);
         }
 
+        // Se Destrói ao ser colidido com o "player"
         Destroy(gameObject);
     }
 }
