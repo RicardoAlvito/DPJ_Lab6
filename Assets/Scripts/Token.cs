@@ -27,7 +27,7 @@ public class Token : MonoBehaviour
         {
             UIManager.Instance.AddScore(value);
         }
-
+            
         // Toca um som ao ser colidido com o "player"
         if (pickupSfx != null)
         {
